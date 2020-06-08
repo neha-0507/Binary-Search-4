@@ -1,0 +1,31 @@
+# Time Complexity - o(n)
+# Space Comlexity - o(1)
+class Solution:
+    def hIndex(self, citations: List[int]) -> int:
+        n=len(citations)
+        val=0
+        diff=0
+        for i in range(len(citations)):      
+            val=citations[i]
+            diff=n-i
+            if(val==diff):
+                return val
+            elif(val>diff):            
+                return n-i
+
+# Time Complexity - o(logn)
+# Space Comlexity - o(1)
+class Solution:
+    def hIndex(self, citations: List[int]) -> int:
+        if(len(citations)==0 and citations==None):
+            return 0
+        n=len(citations)
+        val=0
+        diff=0
+        for i in range(len(citations)):      
+            val=citations[i]
+            diff=n-i
+            if(val==diff):
+                return val
+            elif(val>diff):            
+                return n-i
