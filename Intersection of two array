@@ -1,0 +1,44 @@
+## Intersection of Two Array  (HASHMAP SOLUTIONS, TWO POINTER SOLUTIONS)
+#TC- 0(m+n), o(MN)
+#SC- o(n), o(1)
+
+# def BST(nums1,nums2):
+#     d={}
+#     res=[]
+#     for i in nums1:
+#         if i in d:
+#             d[i]+=1
+#         else:
+#             d[i]=1
+#     for j in nums2:
+#         if (j in d) and (d[j]>0):
+#             res.append(j)
+#             d[j]-=1
+#     return res
+#
+# # DRIVER CODE
+# nums1=[4,9,5]
+# nums2= [9,4,9,8,4]
+# ans=BST(nums1,nums2)
+# print(ans)
+
+
+###################################### TWO POINTERS ###################################
+def BST(nums1,nums2):
+    PTX1=0
+    PTX2=0
+    nums1.sort()
+    nums2.sort()
+    m=len(nums1)
+    n=len(nums2)
+    res=[]
+    while((PTX1 < m) and (PTX2<n)):
+        if(nums1[PTX1]==nums2[PTX2]):
+            res.append(nums1[PTX1])
+            PTX1+=1
+            PTX2+=1
+        elif(nums1[PTX1]>nums2[PTX2]):
+            PTX2+=1
+        else:
+            PTX1+=1
+    return res
